@@ -1,0 +1,8 @@
+{
+  "appId": "com.example.app",
+  "appName": "Finding_Work",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
