@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { AuthenticateService } from "../services/authenticate.service";
+// import { AuthenticateService } from "../services/authenticate.service";
 import { NavController } from '@ionic/angular';
 
 import { Storage } from "@ionic/storage";
+import { AuthService } from "../services/auth.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -26,39 +28,24 @@ export class LoginPage{
 
   errorMessage: string = ""
 
+  email: string;
+  password: string;
+
   constructor(
+    private authService: AuthService, 
+    public router: Router,
     private navCtrl: NavController,
-    private formBuilder: FormBuilder,
-    private authService: AuthenticateService,
     private storage: Storage
-    ) {
-      this.loginForm = this.formBuilder.group({
-        email: new FormControl("", Validators.compose([
-          Validators.required,
-          Validators.pattern("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$")
-        ])
-        ),
-        password: new FormControl("", Validators.compose([
-          Validators.required,
-          Validators.minLength(5)
-        ])
-        )
-      })
+    ) { }
+
+  onSubmitLogin(){
+    this.authService.login(this.email,this.password).then( res => {
+      this.storage.set('isUserLoggedIn',true)
+      this.navCtrl.navigateForward('/menu/home');  
+    }).catch(err => alert('Los datos son incorrectos o no existe el usuario'))
   }
-  
+
   goToRegister(){
-    this.navCtrl.navigateForward('/register')
+    this.navCtrl.navigateForward('/register');
   }
-
-  loginUser(credentials){
-    // console.log(credentials)
-    this.authService.loginUser(credentials).then(res => {
-      this.errorMessage=""
-      this.storage.set('isUserLoggedIn', true)
-      this.navCtrl.navigateForward("/menu/home")
-    }).catch(err=>{
-      this.errorMessage = err;
-    })
-  }
-
 }

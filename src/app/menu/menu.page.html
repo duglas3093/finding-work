@@ -1,5 +1,5 @@
 <ion-split-pane>
-  <ion-menu contentId="content" side="end">
+  <ion-menu contentId="content" side="start">
     <ion-header>
       <ion-toolbar>
         <ion-title>Menu</ion-title>
@@ -14,9 +14,15 @@
       <!-- Permite encadenar item en orden vertical  -->
       <ion-list>
         <ion-item (click)="goToHome()">Home</ion-item>
-        <ion-item (click)="logout()"><ion-icon name="log-out" color="primary" slot="start"></ion-icon>Salir</ion-item>
+        <ion-item>Mis Ofertas</ion-item>
+        <ion-item>Chats</ion-item>
+        <ion-item>Perfil</ion-item>
+        <ion-item (click)="logout()"><ion-icon name="log-out" color="primary" slot="start"></ion-icon>Cerrar Sesión</ion-item>
       </ion-list>
     </ion-content>
+    <ion-footer>
+      <p>Consultas</p>
+    </ion-footer>
   </ion-menu>
   <ion-router-outlet id="content" main></ion-router-outlet>
 </ion-split-pane>
