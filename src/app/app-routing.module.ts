@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'menu', loadChildren: './menu/menu.module#MenuPageModule', 
     canActivate:[LoginGuard,IntroGuard]
   },
-  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
+  { path: 'register', loadChildren: './register/register.module#RegisterPageModule'},
+  // { path: 'conversations', loadChildren: './conversations/conversations.module#ConversationsPageModule' },
 ];
 
 @NgModule({

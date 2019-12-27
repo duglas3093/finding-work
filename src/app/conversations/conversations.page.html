@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>conversations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor = "let conversation of conversationsRooms" (click)="openChat(conversation)">
+      <ion-avatar slot="start">
+        <ion-img [src]="conversation.img"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h2><b>{{conversation.name}}</b></h2>
+        <p>{{conversation.description}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

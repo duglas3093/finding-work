@@ -14,22 +14,28 @@ import { IonicStorageModule } from '@ionic/storage';
 import { firebaseConfig } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule, FirestoreSettingsToken } from "@angular/fire/firestore";
+import { ChatComponent } from './componentes/chat/chat.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, ChatComponent],
+  entryComponents: [ ChatComponent ],
   imports: [
+    FormsModule,
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule, 
+    AngularFireAuthModule,
+    AngularFirestoreModule, 
     IonicStorageModule.forRoot()
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {provide: FirestoreSettingsToken, useValue: {}}
   ],
   bootstrap: [AppComponent]
 })

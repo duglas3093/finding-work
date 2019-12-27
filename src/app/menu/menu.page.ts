@@ -30,6 +30,10 @@ export class MenuPage {
     this.navCtrl.navigateRoot('menu/home')
     this.menu.close()
   }
+  goToConversations(){
+    this.navCtrl.navigateRoot('menu/conversations')
+    this.menu.close()
+  }
 
   // goToSports(){
   //   this.navCtrl.navigateRoot('menu/sports')

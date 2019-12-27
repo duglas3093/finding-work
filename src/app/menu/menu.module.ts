@@ -17,10 +17,15 @@ const routes: Routes = [
         loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)
       },
       {
+        path: 'conversations', 
+        loadChildren: '../conversations/conversations.module#ConversationsPageModule' 
+      },
+      {
         path:"",
         redirectTo:"home",
         pathMatch:"full"
       }
+      
     ]
   }
 ];
