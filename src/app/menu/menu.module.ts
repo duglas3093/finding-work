@@ -20,6 +20,10 @@ const routes: Routes = [
         path: 'conversations', 
         loadChildren: '../conversations/conversations.module#ConversationsPageModule' 
       },
+      { 
+        path: 'settings', 
+        loadChildren: '../settings/settings.module#SettingsPageModule' 
+      },
       {
         path:"",
         redirectTo:"home",

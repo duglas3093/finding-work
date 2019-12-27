@@ -19,7 +19,10 @@ export class RegisterPage{
   public password: string;
   public name: string
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(
+    private auth: AuthService, 
+    private router: Router,
+    private navCtrl: NavController) { }
 
   ngOnInit(){}
 
@@ -27,6 +30,10 @@ export class RegisterPage{
     this.auth.register(this.email, this.password, this.name).then( auth =>{
       this.router.navigate(['menu/home'])
     }).catch( err => console.log(err))
+  }
+
+  goToLogin(){
+    this.navCtrl.navigateBack("/login")
   }
 
 }

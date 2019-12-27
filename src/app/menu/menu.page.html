@@ -5,7 +5,7 @@
         <ion-title>Menu</ion-title>
         <ion-buttons slot="start">
           <ion-button (click)="closeMenu()">
-            <ion-icon name="md-arrow-forward" size="large"></ion-icon>
+            <ion-icon name="md-arrow-back" size="large"></ion-icon>
           </ion-button>
         </ion-buttons>
       </ion-toolbar>
@@ -16,7 +16,7 @@
         <ion-item (click)="goToHome()">Home</ion-item>
         <ion-item>Mis Ofertas</ion-item>
         <ion-item (click)="goToConversations()">Conversations</ion-item>
-        <ion-item>Perfil</ion-item>
+        <ion-item (click)="goToSettings()">Settings</ion-item>
         <ion-item (click)="logout()"><ion-icon name="log-out" color="primary" slot="start"></ion-icon>Cerrar Sesión</ion-item>
       </ion-list>
     </ion-content>

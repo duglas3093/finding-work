@@ -21,10 +21,10 @@ export class MenuPage {
     this.navCtrl.navigateRoot('/login')
   }
 
-  // goToSettings(){
-  //   this.navCtrl.navigateRoot('menu/settings')
-  //   this.menu.close()
-  // }
+  goToSettings(){
+    this.navCtrl.navigateRoot('menu/settings')
+    this.menu.close()
+  }
 
   goToHome(){
     this.navCtrl.navigateRoot('menu/home')
@@ -34,11 +34,4 @@ export class MenuPage {
     this.navCtrl.navigateRoot('menu/conversations')
     this.menu.close()
   }
-
-  // goToSports(){
-  //   this.navCtrl.navigateRoot('menu/sports')
-  //   this.menu.close()
-  // }
-
-
 }

@@ -13,6 +13,7 @@ const routes: Routes = [
     canActivate:[LoginGuard,IntroGuard]
   },
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule'},
+  // { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
   // { path: 'conversations', loadChildren: './conversations/conversations.module#ConversationsPageModule' },
 ];
 
